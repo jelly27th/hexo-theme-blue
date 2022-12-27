@@ -1,7 +1,12 @@
 {% macro render(display_toc) %}
 <div class="inner">
   {%- if display_toc %}
-    {%- set toc = toc(page.content) %}
+    {# {%- set toc = toc(page.content) %} #}
+    {%- if(page.encrypt) %}
+      {% set toc = toc(page.origin) %}
+    {%- else %}
+      {% set toc = toc(page.content) %}
+    {%- endif %}
     {%- set display_toc = toc.length > 1 and display_toc %}
     {%- set related = _category_posts(page) %}
   {%- endif %}
@@ -9,8 +14,16 @@
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="{{ __('sidebar.toc') }}">
-        {%- if display_toc %}
-          {{ toc }}
+        {%- if(page.encrypt) %}
+          <div id="toc-div" style="display:none">
+          {%- if display_toc %}
+            {{ toc }}
+          {%- endif %}
+          </div>
+        {%- else %}
+          {%- if display_toc %}
+              {{ toc }}
+          {%- endif %}
         {%- endif %}
       </div>
       <div class="related panel pjax" data-title="{{ __('sidebar.related') }}">

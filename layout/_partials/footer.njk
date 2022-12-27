@@ -29,4 +29,12 @@
     {{ __('footer.powered', _url('https://hexo.io', 'Hexo') + ' & Theme.' + _url('https://github.com/amehime/hexo-theme-shoka', 'Shoka')) }}
   </div>
   {%- endif %}
+
+  {%- if theme.footer.icp %}
+  <span class="post-meta-divider">|</span>
+  <div class="icp">
+    <a href="https://icp.gov.moe/?keyword=20220287"  target="_blank">萌ICP备20220287号</a>
+    {# {{ __('footer.icp', _url('https://icp.gov.moe/?keyword=20220287', '萌ICP备20220287号')) }} #}
+  </div>
+  {%- endif %}
 </div>

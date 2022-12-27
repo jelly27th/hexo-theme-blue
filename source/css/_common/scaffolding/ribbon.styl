@@ -1,10 +1,11 @@
+//翻转卡牌的丝带
 .ribbon {
   display: inline-block;
   align-self: flex-start;
   position: relative;
   padding: 0 1rem 0 2rem;
   border-radius: 0 .3rem .3rem 0;
-  background-image: linear-gradient(to right,var(--color-orange) 0,var(--color-pink) 100%);
+  background-image: linear-gradient(120deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
   color: var(--grey-0);
 
   &::after {
@@ -18,7 +19,7 @@
     border-style: solid;
     border-width: 0 1rem 1rem 0;
     border-color: transparent;
-    border-right-color: var(--color-orange);
+    border-right-color: var(--color-blue);
     filter: brightness(.9);
   }
 

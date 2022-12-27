@@ -1,9 +1,10 @@
-<?xml version="1.0"?>
+<!-- 声明这是个XML文件 -->
+<?xml version="1.0"?>  
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id><%= config.url %></id>
     <title><%= config.title %></title>
     <subtitle><%= config.subtitle %></subtitle>
-    <icon><%= full_url_for('/images/favicon.ico') %></icon>
+    <icon><%= full_url_for('//favicon.ico') %></icon>
     <link href="<%= config.url %>" />
     <author>
       <name><%= config.author %></name>
@@ -15,14 +16,14 @@
     <%_ for (const post of posts) { _%>
     <entry>
         <id><%= post.permalink %></id>
-        <title><%= post.title %></title>
+        <title><%= post.title %></title>  
         <link rel="alternate" href="<%= post.permalink %>"/>
         <content type="html"><%= post.content %></content>
         <%_ for (const { name, path } of (post.categories ? post.categories.toArray() : [])) { _%>
         <category term="<%= name %>" scheme="<%= full_url_for(path) %>" />
         <%_ } _%>
         <%_ for (const { name, path } of (post.tags ? post.tags.toArray() : [])) { _%>
-        <category term="<%= name %>" scheme="<%= full_url_for(path) %>" />
+        <category term="<%= name %>" scheme="<%= full_url_for(path) %>" /> 
         <%_ } _%>
         <updated><%= moment(post.date).toISOString() %></updated>
     </entry>

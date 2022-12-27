@@ -155,7 +155,7 @@ reward:
   account:
     wechatpay: /wechatpay.png
     alipay: /alipay.png
-    paypal: /paypal.png
+    # paypal: /paypal.png
 
 # TagCloud settings for tags page.
 tagcloud:
@@ -184,8 +184,8 @@ creative_commons:
 # Valine
 # For more information: https://github.com/amehime/MiniValine
 valine:
-  appId: #Your_appId
-  appKey: #Your_appkey
+  appId:  #Your_appId
+  appKey:  #Your_appkey
   placeholder: ヽ(○´∀`)ﾉ♪ # Comment box placeholder
   avatar: mp # Gravatar style : mp, identicon, monsterid, wavatar, robohash, retro
   pageSize: 10 # Pagination size
@@ -276,6 +276,16 @@ baidu_site_verification:
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
 baidu_push: false
+
+# Security - hexo-blog-encrypt
+# encrypt:
+#   silent: true
+#   theme: wave
+#   abstract: 这是一篇加密文章，需要密码才能继续阅读。
+#   message: 当前文章暂不对外可见，请输入密码后查看！
+#   tags:
+#     - {name: private, password: jelly}
+#   wrong_pass_message: 抱歉，您输入的密码错误，请检查后重新输入。
 
 
 #! ---------------------------------------------------------------

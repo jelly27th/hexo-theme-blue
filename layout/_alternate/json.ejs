@@ -1,3 +1,4 @@
+<!-- jsonfeed文件格式 -->
 <%- JSON.stringify({
     version: 'https://jsonfeed.org/version/1',
     title: config.title,
@@ -14,3 +15,6 @@
         tags: [...(post.categories ? post.categories.toArray() : []).map(({ name }) => name), ...(post.tags ? post.tags.toArray() : []).map(({ name }) => name)]
     }))
 }, null, 4) _%>
+
+
+

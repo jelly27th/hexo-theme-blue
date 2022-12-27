@@ -1,13 +1,18 @@
+{# 首页 #}
+{# 指定模板父级继承 #}
 {% extends '_partials/layout.njk' %}
+{# 与上下文一起导入宏 #}
 {% import '_macro/card.njk' as card with context %}
 {% import '_macro/postmeta.njk' as postmeta with context %}
 {% import '_macro/segment.njk' as segment with context %}
 
 {% block content %}
   <div class="index wrap">
+  {# 置顶文章 #}
     {%- if page.current == 1 %}
       {%- if page.sticky.length > 0%}
-      <h2 class="divider">{{ __('index.sticky') }}</h2>
+      {# 国际化i18n #}
+      <h2 class="divider">{{ __('index.sticky') }}</h2>  
       {%- set sticky = page.sticky.toArray() %}
       <div class="segments sticky">
         {%- for post in sticky %}
@@ -15,7 +20,7 @@
         {%- endfor %}
       </div>
       {%- endif %}
-
+      {# 精选分类 #}
       {%- if page.catlist.length > 0%}
       <h2 class="divider">{{ __('index.category') }}</h2>
       <div class="cards">
@@ -25,7 +30,7 @@
       </div>
       {%- endif %}
     {%- endif %}
-
+    {# 文章列表 #}
     {%- if page.posts.length > 0%}
     {%- set posts = page.posts.toArray() %}
     {%- if page.current == 1 %}
@@ -39,7 +44,7 @@
     {%- endif %}
 
   </div>
-
+{# 引入分页文件 #}
   {% include '_partials/pagination.njk' %}
 
 {% endblock %}
