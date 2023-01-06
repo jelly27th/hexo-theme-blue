@@ -1,18 +1,13 @@
 /* global hexo */
-// 严格模式
 "use strict";
-// 引入node模块
+
 const path = require("path");
 const url = require("url");
-// const 用于声明一个或多个常量，声明时必须进行初始化，且初始化后值不可再修改
-// (x) => x + 6
-// function(x){
-//   return x + 6;
-// };
+
 const fmtNum = (num) => {
   return num < 10 ? "0" + num : num;
 };
-// 修改局部变量
+
 hexo.extend.filter.register("template_locals", (locals) => {
   const { env, config } = hexo;
   const { __, theme } = locals;

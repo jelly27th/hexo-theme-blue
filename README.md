@@ -1,4 +1,4 @@
-# Hexo Theme Shoka
+# Hexo Theme Blue(fork from hexo-theme-shoka)
 
 ## Usage
 
@@ -22,3 +22,5 @@ git clone git@github.com:jelly27th/hexo-theme-blue.git
 4. View a site configuration example in the `example` folder.
 
 5. [中文使用说明](https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/)
+   
+6. Use command `./themes/blue/deploy.sh ` to deploy
