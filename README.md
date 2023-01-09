@@ -1,4 +1,4 @@
-# Hexo Theme Blue(fork from hexo-theme-shoka)
+# Hexo Theme Shoka
 
 ## Usage
 
@@ -6,11 +6,11 @@
 
 ``` bash
 # cd your-blog
-git clone git@github.com:jelly27th/hexo-theme-blue.git
+git clone git@github.com:jelly27th/hexo-theme-shoka.git
 ```
 
 2. Make changes to the root `_config.yml`
-  - update `theme` fragment as `blue`.  
+  - update `theme` fragment as `shoka`.  
 
 3. Install the necessary plugins
   - [hexo-renderer-multi-markdown-it](https://www.npmjs.com/package/hexo-renderer-multi-markdown-it)
@@ -23,4 +23,4 @@ git clone git@github.com:jelly27th/hexo-theme-blue.git
 
 5. [中文使用说明](https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/)
    
-6. Use command `./themes/blue/deploy.sh ` to deploy
+6. Use command `./themes/shoka/deploy.sh ` to deploy
