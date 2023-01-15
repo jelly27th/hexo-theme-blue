@@ -8,6 +8,13 @@
     </span>
     <span class="author" itemprop="copyrightHolder">{{ author }} @ {{ alternate if alternate else title}}</span>
   </div>
+  
+  {%- if theme.footer.beian.enable %}
+  <div class="icp">
+    <img src = "{{theme.footer.beian.icon}}" width="3%" height="3%">
+    {{ _url(theme.footer.beian.link, theme.footer.beian.icp, {target: '_blank'})}}
+  </div>
+  {%- endif %}
 
   {%- if theme.footer.count %}
   <div class="count">
@@ -23,6 +30,14 @@
     <span title="{{ __('symbols_count_time.time_total') }}">{{ symbolsTimeTotal(site, config.symbols_count_time.awl, config.symbols_count_time.wpm, __('symbols_count_time.time_minutes')) }}</span>
   </div>
   {%- endif %}
+  
+  {%- if theme.Running_time.enable %}
+  <div style="font-size: 0.85rem">
+    <span id="timeDate">{{ __('duration.days') }}</span>
+    <span id="times">{{ __('duration.time') }}</span>
+    <script src="/js/duration.js"></script>
+  </div>
+  {%- endif %}
 
   {%- if theme.footer.powered %}
   <div class="powered-by">
@@ -30,11 +45,5 @@
   </div>
   {%- endif %}
 
-  {%- if theme.footer.icp %}
-  <span class="post-meta-divider">|</span>
-  <div class="icp">
-    <a href="https://icp.gov.moe/?keyword=20220287"  target="_blank">萌ICP备20220287号</a>
-    {# {{ __('footer.icp', _url('https://icp.gov.moe/?keyword=20220287', '萌ICP备20220287号')) }} #}
-  </div>
-  {%- endif %}
+ 
 </div>

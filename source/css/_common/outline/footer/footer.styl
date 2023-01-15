@@ -68,7 +68,10 @@
   margin-bottom: .625rem;
 }
 
-.icp{
-  display: inline-block;
-  margin-bottom: .625rem;
+if (hexo-config('footer.beian.enable') and hexo-config('footer.beian.icon')) {
+  .icp img{
+    display: inline-block;
+    margin: 0 3px;
+    vertical-align: middle;
+  }
 }

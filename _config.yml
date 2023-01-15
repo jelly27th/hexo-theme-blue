@@ -85,9 +85,16 @@ font:
     family: Inconsolata
 
 # project of https://www.iconfont.cn/
-# //at.alicdn.com/t/font_1832207_c8i9n1ulxlt.css => 1832207_c8i9n1ulxlt
-iconfont: "1832207_igi8uaupcus"
+# //at.alicdn.com/t/c/font_3451258_m9dewvr8jb.eot?t=1673666917471 ==
+# ==> 3451258_m9dewvr8jb 1673666917471
+iconfont: "3451258_m9dewvr8jb"
+iconfont_number: "1673666917471"
 
+# menu has four mode.
+# Home page : see `home`
+# New page : see `about`、`links`
+# First level directory ：see `post`
+# External link ：see `travellings`
 menu:
   home: / || home
   # about: /about/ || user
@@ -98,6 +105,7 @@ menu:
   #   tags: /tags/ || tags
   # friends: /friends/ || heart
   # links: /links/ || magic
+  # travellings: https://www.travellings.cn/go.html || ditiexiao
 
 # Social Links
 # Usage: `Key: permalink || icon || color`
