@@ -2,7 +2,12 @@
 const fs = require('hexo-fs');
 const url = require('url');
 
-
+/**
+ * @return {string} app.js
+ * @path js/
+ * @brief Merge siteConfig and all files in the _app directory except
+ *        fireworks.js(if theme.fireworks disabled)
+ */
 hexo.extend.generator.register('script', function(locals){
   const config = hexo.config;
   const theme = hexo.theme.config;
@@ -10,13 +15,13 @@ hexo.extend.generator.register('script', function(locals){
   var env = require('../../package.json')
 
   var siteConfig = {
-    version: env['version'],
+    version: env["version"],
     hostname: config.url,
     root: config.root,
     statics: theme.statics,
     favicon: {
       normal: theme.images + "/favicon.ico",
-      hidden: theme.images + "/failure.ico"
+      hidden: theme.images + "/failure.ico",
     },
     darkmode: theme.darkmode,
     auto_scroll: theme.auto_scroll,
@@ -24,21 +29,21 @@ hexo.extend.generator.register('script', function(locals){
       valine: theme.vendors.js.valine,
       chart: theme.vendors.js.chart,
       copy_tex: theme.vendors.js.copy_tex,
-      fancybox: theme.vendors.js.fancybox
+      fancybox: theme.vendors.js.fancybox,
     },
     css: {
       valine: theme.css + "/comment.css",
       katex: theme.vendors.css.katex,
       mermaid: theme.css + "/mermaid.css",
-      fancybox: theme.vendors.css.fancybox
+      fancybox: theme.vendors.css.fancybox,
     },
     loader: theme.loader,
-    search : null,
+    search: null,
     valine: theme.valine,
     quicklink: {
-      timeout : theme.quicklink.timeout,
-      priority: theme.quicklink.priority
-    }
+      timeout: theme.quicklink.timeout,
+      priority: theme.quicklink.priority,
+    },
   };
 
   if(config.algolia) {
@@ -55,7 +60,7 @@ hexo.extend.generator.register('script', function(locals){
   }
 
   var text = '';
-  // Import script path? 
+  // Merge all files in the _app directory to `text` except fireworks.js 
   ['utils', 'dom', 'player', 'global', 'sidebar', 'page', 'pjax'].forEach(function(item) {
     text += fs.readFileSync('themes/shoka/source/js/_app/'+item+'.js').toString();
   });

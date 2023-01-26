@@ -3,11 +3,15 @@
 const fs = require('hexo-fs');
 const pagination = require('hexo-pagination');
 
+/** ??? */
 hexo.config.index_generator = Object.assign({
   per_page: typeof hexo.config.per_page === 'undefined' ? 10 : hexo.config.per_page,
   order_by: '-date'
 }, hexo.config.index_generator);
 
+/**
+ * @brief locals == site
+ */
 hexo.extend.generator.register('index', function(locals) {
   let covers = [];
   let catlist = [];

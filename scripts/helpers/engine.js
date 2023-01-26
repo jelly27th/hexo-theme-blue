@@ -49,6 +49,14 @@ const randomBG = function(count = 1, image_server = null, image_list = []) {
   return parseImage(image_list[Math.floor(Math.random() * image_list.length)], 'mw690')
 }
 
+/**
+ * @function _url(path,text,options)
+ * @param {String} path Internal link or External link
+ * @param {String} text This can be plain text or a string type label
+ * @param {Object} options Options is an attribute in the tag
+ * @returns When path is internal link ,return <a> label.
+ * when path is external link, return <span></span> label.
+ */
 hexo.extend.helper.register('_url', function(path, text, options = {}) {
   if(!path)
     return
@@ -147,6 +155,11 @@ hexo.extend.helper.register('_permapath', function(str) {
   return url;
 });
 
+/**
+ * @function canonical()
+ * @brief URL canonicalization of duplicate pages and the use of the canonical tag.
+ *        see https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls detaily
+ */
 hexo.extend.helper.register('canonical', function() {
   return `<link rel="canonical" href="${this._permapath(this.url)}">`;
 });

@@ -405,6 +405,10 @@ const tabFormat = function() {
   });
 }
 
+/**
+ * @returns load valine comments style.
+ * @link /shoka/layout/_macro/comment.njk 
+ */
 const loadComments = function () {
   var element = $('#comments');
   if (!element) {

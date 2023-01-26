@@ -50,6 +50,10 @@ const Loader = {
   }
 }
 
+/**
+ * @param {*} type `dark` or other
+ * @brief switch theme mode. it has dark theme and light theme.
+ */
 const changeTheme = function(type) {
   var btn = $('.theme .ic')
   if(type == 'dark') {
@@ -63,6 +67,9 @@ const changeTheme = function(type) {
   }
 }
 
+/**
+ * @brief change the overall color of the theme.
+ */
 const changeMetaTheme = function(color) {
   if(HTML.attr('data-theme') == 'dark')
     color = '#222'

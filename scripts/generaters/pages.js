@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * @return Generate category、tags、404 index.html
+ */
 hexo.extend.generator.register('pages', function(locals){
   const config = hexo.config;
 

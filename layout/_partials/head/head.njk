@@ -37,11 +37,11 @@
   <meta name="baidu-site-verification" content="{{ theme.baidu_site_verification }}">
 {%- endif %}
 
-{# 链接alternate文件 #}
+{# 订阅 #}
 <link rel="alternate" type="application/rss+xml" title="{{config.title}}" href="{{ full_url_for('/rss.xml') }}" />
 <link rel="alternate" type="application/atom+xml" title="{{config.title}}" href="{{ full_url_for('/atom.xml') }}" />
 <link rel="alternate" type="application/json" title="{{config.title}}" href="{{ full_url_for('/feed.json') }}" />
 {# 字体? #}
 {{ _vendor_font() }}
-
+{# CSS loading #}
 {{ _css('app.css') }}

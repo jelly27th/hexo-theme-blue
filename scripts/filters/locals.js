@@ -8,6 +8,9 @@ const fmtNum = (num) => {
   return num < 10 ? "0" + num : num;
 };
 
+/**
+ * @brief Modifies local variables of the template.
+ */
 hexo.extend.filter.register("template_locals", (locals) => {
   const { env, config } = hexo;
   const { __, theme } = locals;

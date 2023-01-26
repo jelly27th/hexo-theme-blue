@@ -1,3 +1,8 @@
+/** 
+ * @param {*} selector Name of the css selector
+ * @param {*} element Default `document`
+ * @returns Get the first element in the current document with class name `selector`.
+ */
 const $ = function(selector, element) {
   element = element || document;
   if(selector.indexOf('#') === 0) {
@@ -6,11 +11,23 @@ const $ = function(selector, element) {
   return element.querySelector(selector)
 };
 
+/**
+ * @param {*} selector Name of the css selector
+ * @param {*} element Default `document`
+ * @returns Get all elements in the current document with class name `selector`.
+ */
 $.all = function(selector, element) {
   element = element || document;
   return element.querySelectorAll(selector)
 };
 
+/**
+ * @param {*} selector Name of the css selector
+ * @param {*} callback A callback function
+ * @param {*} element Default `document`
+ * @returns Get result from all elements in the current document 
+ *          with class name `selector` by callback function.
+ */
 $.each = function(selector, callback, element) {
   return $.all(selector, element).forEach(callback)
 }

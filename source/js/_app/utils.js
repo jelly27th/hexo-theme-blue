@@ -1,11 +1,26 @@
+/**
+ * @param {*} min Random Integer Lower Bound
+ * @param {*} max Random integer cap
+ * @returns Get random integer.
+ */
 const getRndInteger = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+/**
+ * @returns Child selector `main > .inner` 's offsetHeight
+ */
 const getDocHeight = function () {
   return $('main > .inner').offsetHeight;
 }
 
+/**
+ * @param {string} url see themes.vendors.js.
+ * @param {string} callback a callback function.
+ * @param {string} condition window object.
+ * @brief Get a script label and import third party dependence from url.
+ * @link https://gist.github.com/marcus-at-localhost/da0cc3da4bfa70399963a4bd32b9e5bf
+ */
 const getScript = function(url, callback, condition) {
   if (condition) {
     callback();
@@ -23,6 +38,12 @@ const getScript = function(url, callback, condition) {
   }
 }
 
+/**
+ * @param {string} asset theme.css `js` or theme.css `css`. 
+ * @param {string} type  Global variable `LOCAL` 's parameter.
+ * @returns if url start with npm、gh、combine, use jsdelivr to speed up
+ *          third party dependence, else return original url.
+ */
 const assetUrl = function(asset, type) {
   var str = CONFIG[asset][type]
   if(str.indexOf('npm')>-1||str.indexOf('gh')>-1||str.indexOf('combine')>-1)
@@ -31,9 +52,17 @@ const assetUrl = function(asset, type) {
   if(str.indexOf('http')>-1)
     return str
 
+  // `statics` see .../_app/global.js  
   return statics + str;
 }
 
+/**
+ * @param {string} type  `LOCAL` or `window` or `CONFIG` object.  
+ * @param {string} callback if no callback is provided, defaults window object is exist.
+ * @param {string} condition `window` object. if no condition is provided, 
+ *                            defaults use `window[type]`.
+ * @brief Get a script label and import third party dependence from url.
+ */
 const vendorJs = function(type, callback, condition) {
   if(LOCAL[type]) {
     getScript(assetUrl("js", type), callback || function(){
@@ -42,6 +71,11 @@ const vendorJs = function(type, callback, condition) {
   }
 }
 
+/**
+ * @param {*} type  `LOCAL` or `window` or `CONFIG` object.  
+ * @param {*} condition `window` object but not use it in this function.
+ * @brief Generate link label import third party css according to `type`
+ */
 const vendorCss = function(type, condition) {
   if(window['css'+type])
     return;
@@ -57,6 +91,10 @@ const vendorCss = function(type, condition) {
   }
 }
 
+/**
+ * @param {*} element default `document`.
+ * @brief Implement pjax loading website.
+ */
 const pjaxScript = function(element) {
   var code = element.text || element.textContent || element.innerHTML || '';
   var parent = element.parentNode;
@@ -85,6 +123,10 @@ const pjaxScript = function(element) {
   parent.appendChild(script);
 }
 
+/**
+ * @param {*} complete a custom function.
+ * @brief record page scroll position. 
+ */
 const pageScroll = function(target, offset, complete) {
   var opt = {
     targets: typeof offset == 'number' ? target.parentNode : document.scrollingElement,
@@ -98,6 +140,12 @@ const pageScroll = function(target, offset, complete) {
   anime(opt);
 }
 
+/** 
+ * @param {*} type `0` or `1` or `bounceUpIn` or `shrinkIn` or 
+ *                 `slideRightIn` or `slideRightOut`.
+ * @param {*} complete a custom function.
+ * @brief  
+ */
 const transition = function(target, type, complete) {
   var animation = {}
   var display = 'none'
@@ -168,6 +216,10 @@ const transition = function(target, type, complete) {
     });
 }
 
+/**
+ * @link https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage
+ * @brief store or read or remove the data.  
+*/
 const store = {
   get: function(item) {
     return localStorage.getItem(item);

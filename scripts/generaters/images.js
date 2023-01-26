@@ -2,8 +2,12 @@
 
 const fs = require('hexo-fs');
 
+/**
+ * @return {Array} result
+ * @brief `result` implement a custom theme image.
+ */
 hexo.extend.generator.register('images', function(locals){
-  const config = hexo.config;
+  // const config = hexo.config;
   const theme = hexo.theme.config;
   const dir = 'source/_data/' + theme.images + '/'
 

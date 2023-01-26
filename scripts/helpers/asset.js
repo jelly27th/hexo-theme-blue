@@ -61,13 +61,18 @@ hexo.extend.helper.register('_vendor_js', () => {
   return vendorJs ? htmlTag('script', { src: `//cdn.jsdelivr.net/combine/${vendorJs}` }, '') : '';
 });
 
+/**
+ * @brief Import a CSS file
+ */
 hexo.extend.helper.register('_css', function(...urls) {
   const { statics, css } = hexo.theme.config;
 
   return urls.map(url => htmlTag('link', { rel: 'stylesheet', href: url_for.call(this, `${statics}${css}/${url}?v=${theme_env['version']}`) })).join('');
 });
 
-
+/**
+ * @brief Import a JavaScript file
+ */
 hexo.extend.helper.register('_js', function(...urls) {
   const { statics, js } = hexo.theme.config;
 
